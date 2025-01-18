@@ -19,7 +19,7 @@ export const theme = {
     //나중에 필요시 추가하기
     bg: "#999999", //배경색
     mainColor: "#FF6969", //메인컬러
-    pageBgColor: "#FAFAFC", //페이지 기본 회색 배경색
+    pageBgColor: "#FFF7F7", //페이지 기본 회색 배경색
     default: "#000000", // 기본 검정색
     testBgColor: "#FFF7F7", //테스트페이지 배경색 연핑크
 

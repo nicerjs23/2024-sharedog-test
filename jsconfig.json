@@ -8,7 +8,9 @@
       "@hooks/*": ["src/hooks/*"],
       "@layout/*": ["src/layout/*"],
       "@pages/*": ["src/pages/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@assets/*": ["src/assets/*"],
+      "@data/*": ["src/data/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
