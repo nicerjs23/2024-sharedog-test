@@ -29,7 +29,7 @@ export const TestPage = () => {
   const handleExit = () => {
     setSelectedOptions(Array(testQuestions.length).fill(null)); // 선택된 옵션 초기화
     setQuestionScores(Array(testQuestions.length).fill(0)); // 점수 초기화
-    goTo("/testStart", { replace: true }); // 메인 페이지로 이동
+    goTo("/", { replace: true }); // 메인 페이지로 이동
   };
 
   // ✅ 옵션 선택 핸들러

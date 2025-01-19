@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <DefaultLayout />,
     children: [
-      { path: "testStart", element: <TestStartPage /> },
+      { path: "", element: <TestStartPage /> },
       { path: "test", element: <TestPage /> },
       { path: "resultOK", element: <TestResultOkPage /> },
       { path: "resultNO", element: <TestResultNoPage /> },
