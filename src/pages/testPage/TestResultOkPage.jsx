@@ -29,7 +29,7 @@ export const TestResultOkPage = () => {
         <S.Btn onClick={() => shareKakao()}>공유</S.Btn>
         <S.Btn
           props="ok"
-          onClick={() => goTo("/testStart", { replace: true })}
+          onClick={() => goTo("/", { replace: true })}
         >
           확인
         </S.Btn>
