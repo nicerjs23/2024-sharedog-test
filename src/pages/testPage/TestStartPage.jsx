@@ -1,14 +1,18 @@
 import * as S from "./TestStartPage.styled";
-import xIcon from "@assets/icons/X.svg";
 import testLogo from "@assets/images/testStartLogo.png";
 import TestStartPgBtn from "@components/test/TestStartPgBtn";
 import { useCustomNavigate } from "@hooks/useCustomNavigate";
-
-import useKakaoShare from "@hooks/useKaKaoShare";
+import useShare from "@hooks/useShare";
 
 export const TestStartPage = () => {
   const { goTo } = useCustomNavigate();
-  const { shareKakao } = useKakaoShare();
+
+  const { handleShare } = useShare({
+    title: "우리집 강아지는 헌혈견이 될 수 있을까?",
+    text: "강아지의 헌혈 가능 여부를 테스트해보세요!",
+    url: window.location.href,
+  });
+
   return (
     <S.Wrapper>
       <S.Header></S.Header>
@@ -35,7 +39,7 @@ export const TestStartPage = () => {
           $bgColor="#FFD7D7"
           $textColor="#FF6969"
           text="테스트 공유하기"
-          onClick={() => shareKakao()}
+          onClick={handleShare}
         />
       </S.TestBtnBox>
     </S.Wrapper>
