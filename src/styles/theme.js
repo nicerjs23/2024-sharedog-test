@@ -31,6 +31,9 @@ export const theme = {
     gray03: "#3A3A3C",
     gray02: "#636366",
     gray01: "#9C9CA1",
+
+    //테스트 결과페이지
+    title: "#535151", //테스트결과페이지 타이틀 진한회색
   },
 
   fonts: {

@@ -24,6 +24,8 @@ export const TestPage = () => {
   const [selectedStrings, setSelectedStrings] = useState([]); // 선택된 문항 내용 배열
   const [isLoading, setIsLoading] = useState(false); // 로딩 상태
 
+  const [docId, setDocId] = useState(null); // Firestore 문서 ID 저장
+
   // ✅ 뒤로 가기 핸들러
   const handleBack = () => {
     if (currentIndex > 0) {
@@ -66,18 +68,21 @@ export const TestPage = () => {
     setSelectedStrings(updatedStrings);
   };
 
-  // ✅ Firestore에 데이터 저장
+  // ✅ Firestore에 데이터 저장 (테스트 결과만 저장)
   const saveToFirestore = async (selectedStrings, resultText) => {
     try {
-      // Firestore의 "testResults" 컬렉션에 선택된 문항 내용 배열 저장
-      await addDoc(collection(db, "testResults"), {
+      // Firestore에 새 문서 추가
+      const docRef = await addDoc(collection(db, "testResults"), {
         selectedStrings: selectedStrings,
         resultText: resultText, // 결과 텍스트 추가
         timestamp: new Date(), // 저장 시점
       });
-      console.log("✅ Firestore에 저장 성공!");
+
+      console.log("✅ Firestore에 저장 성공! 문서 ID:", docRef.id);
+      return docRef.id; // 문서 ID 반환
     } catch (error) {
       console.error("Firestore 저장 실패:", error);
+      return null; // 실패 시 null 반환
     }
   };
 
@@ -103,7 +108,7 @@ export const TestPage = () => {
         (acc, score) => acc + score,
         0
       );
-      setTimeout(() => {
+      setTimeout(async () => {
         setIsLoading(false);
         console.log("📝 전체 선택한 문항 내용:", selectedStrings);
         console.log("✅ **총합 점수**:", resultScore);
@@ -114,13 +119,20 @@ export const TestPage = () => {
         console.log("✅ **결과**:", resultText);
 
         // ✅ Firestore에 선택한 문항 내용 배열과 결과 텍스트 저장
-        saveToFirestore(selectedStrings, resultText);
+        const docId = await saveToFirestore(
+          selectedStrings,
+          resultText
+        );
 
-        // ✅ 마지막 문항 완료 후 결과 페이지로 이동
-        if (resultScore >= 5) {
-          goTo("/resultOK", { replace: true });
+        if (docId) {
+          // ✅ 마지막 문항 완료 후 결과 페이지로 이동
+          if (resultScore >= 5) {
+            goTo(`/resultOK?id=${docId}`, { replace: true });
+          } else {
+            goTo(`/resultNO?id=${docId}`, { replace: true });
+          }
         } else {
-          goTo("/resultNO", { replace: true });
+          console.error("Firestore 문서 저장 실패");
         }
       }, LOADING_DURATION);
     }

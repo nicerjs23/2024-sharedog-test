@@ -30,6 +30,8 @@ export const AnswerOption = styled.button`
   padding: 0 13px;
   width: 81.07%;
   height: 60px;
+  background-color: ${(props) =>
+    props.selected ? "#FFF3F3" : "#FFF7F7"};
   border: ${(props) =>
     props.selected ? "1px solid #FF6969" : "1px solid #FFE0E0"};
   box-shadow: ${(props) =>
