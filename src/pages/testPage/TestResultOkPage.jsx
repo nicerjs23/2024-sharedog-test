@@ -13,6 +13,12 @@ export const TestResultOkPage = () => {
   const { handleShare } = useShare({
     url: startUrl,
   });
+  const params = new URLSearchParams(window.location.search);
+  const docId = params.get("id");
+
+  const handlePreRegistration = () => {
+    goTo(`/preRegistration?id=${docId}`, { replace: true });
+  };
   return (
     <S.Wrapper>
       <Header onClose={() => goTo("/", { replace: true })} />
@@ -88,7 +94,7 @@ export const TestResultOkPage = () => {
       </S.ContentsBox>
       <S.NavBtnBox>
         <S.Btn onClick={handleShare}>공유</S.Btn>
-        <S.Btn props="ok" onClick={() => goTo("/preRegistration")}>
+        <S.Btn props="ok" onClick={handlePreRegistration}>
           사전신청
         </S.Btn>
       </S.NavBtnBox>
