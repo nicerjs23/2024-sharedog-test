@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  /* 테스트페이지는 배경색달라서 디폴트레이아웃 코드 배경색만바꿔서 그대로씀 -테스트페이지만 배경색다르니 굳이 props처리안하고 코드반복함   */
   flex-grow: 1;
 
   min-height: calc(var(--vh, 1vh) * 100);
