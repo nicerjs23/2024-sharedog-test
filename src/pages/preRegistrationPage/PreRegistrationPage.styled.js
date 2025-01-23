@@ -8,7 +8,7 @@ export const Wrapper = styled.section`
   align-items: center;
   width: 100%;
   max-width: 540px;
-  min-height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 100);
 
   background-image: url(${preBg});
   background-size: cover; /* 이미지가 비율을 유지하면서 화면에 꽉 차게 */

@@ -24,8 +24,6 @@ export const TestPage = () => {
   const [selectedStrings, setSelectedStrings] = useState([]); // 선택된 문항 내용 배열
   const [isLoading, setIsLoading] = useState(false); // 로딩 상태
 
-  const [docId, setDocId] = useState(null); // Firestore 문서 ID 저장
-
   // ✅ 뒤로 가기 핸들러
   const handleBack = () => {
     if (currentIndex > 0) {
@@ -77,8 +75,8 @@ export const TestPage = () => {
         resultText: resultText, // 결과 텍스트 추가
         timestamp: new Date(), // 저장 시점
       });
-
-      console.log("✅ Firestore에 저장 성공! 문서 ID:", docRef.id);
+      console.log("✅ Firestore에 저장 성공! 문서 ID:");
+      // console.log("✅ Firestore에 저장 성공! 문서 ID:", docRef.id);
       return docRef.id; // 문서 ID 반환
     } catch (error) {
       console.error("Firestore 저장 실패:", error);
@@ -90,18 +88,18 @@ export const TestPage = () => {
   const handleNext = () => {
     if (currentIndex < testQuestions.length - 1) {
       setCurrentIndex((prev) => prev + 1); // 다음 문항으로 이동
-      console.log(
-        `📝 **${currentIndex + 1}번 문항 선택 내용:** ${
-          selectedStrings[currentIndex]
-        }`
-      );
+      // console.log(
+      //   `📝 **${currentIndex + 1}번 문항 선택 내용:** ${
+      //     selectedStrings[currentIndex]
+      //   }`
+      // );
     } else {
       // ✅ 마지막 문항 처리
-      console.log(
-        `📝 **${currentIndex + 1}번 문항 선택 내용:** ${
-          selectedStrings[currentIndex]
-        }`
-      );
+      // console.log(
+      //   `📝 **${currentIndex + 1}번 문항 선택 내용:** ${
+      //     selectedStrings[currentIndex]
+      //   }`
+      // );
       setIsLoading(true); // 로딩 상태 활성화
       const LOADING_DURATION = 2000; // 로딩 시간 (2초)
       const resultScore = questionScores.reduce(
@@ -110,13 +108,13 @@ export const TestPage = () => {
       );
       setTimeout(async () => {
         setIsLoading(false);
-        console.log("📝 전체 선택한 문항 내용:", selectedStrings);
-        console.log("✅ **총합 점수**:", resultScore);
+        // console.log("📝 전체 선택한 문항 내용:", selectedStrings);
+        // console.log("✅ **총합 점수**:", resultScore);
 
         // ✅ 결과에 따라 헌혈견 가능/불가능 처리
         const resultText =
           resultScore >= 5 ? "헌혈견 가능" : "헌혈견 불가능";
-        console.log("✅ **결과**:", resultText);
+        // console.log("✅ **결과**:", resultText);
 
         // ✅ Firestore에 선택한 문항 내용 배열과 결과 텍스트 저장
         const docId = await saveToFirestore(

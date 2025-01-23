@@ -68,8 +68,9 @@ export const PreRegistrationPage = () => {
       const docRef = doc(db, "testResults", docId);
       await updateDoc(docRef, { userInfo });
 
-      console.log("✅ Firestore에 사전 정보 저장 성공!", userInfo);
-      goTo("/", { replace: true });
+      console.log("✅ Firestore에 사전 정보 저장 성공!");
+      // console.log("✅ Firestore에 사전 정보 저장 성공!", userInfo);
+      goTo("/success", { replace: true });
     } catch (error) {
       console.error("Firestore 사전 정보 저장 실패:", error);
     }
