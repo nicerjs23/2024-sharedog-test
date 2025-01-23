@@ -6,6 +6,7 @@ import { TestPage } from "@pages/testPage/TestPage";
 import { TestResultNoPage } from "@pages/testPage/TestResultNoPage";
 import { TestResultOkPage } from "@pages/testPage/TestResultOkPage";
 import { PreRegistrationPage } from "@pages/preRegistrationPage/PreRegistrationPage";
+import { SuccessPage } from "@pages/preRegistrationPage/SuccessPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,8 @@ export const router = createBrowserRouter([
       { path: "resultOK", element: <TestResultOkPage /> },
       { path: "resultNO", element: <TestResultNoPage /> },
       { path: "preRegistration", element: <PreRegistrationPage /> },
+      { path: "preRegistration", element: <PreRegistrationPage /> },
+      { path: "success", element: <SuccessPage /> },
     ],
   },
 ]);

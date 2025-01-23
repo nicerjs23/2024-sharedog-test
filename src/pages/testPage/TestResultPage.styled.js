@@ -103,8 +103,8 @@ export const IGBox = styled.div`
 export const IGIcon = styled.button`
   display: flex;
   img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 `;
 export const IGText = styled.div`
