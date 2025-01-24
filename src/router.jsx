@@ -17,7 +17,6 @@ export const router = createBrowserRouter([
       { path: "resultOK", element: <TestResultOkPage /> },
       { path: "resultNO", element: <TestResultNoPage /> },
       { path: "preRegistration", element: <PreRegistrationPage /> },
-      { path: "preRegistration", element: <PreRegistrationPage /> },
       { path: "success", element: <SuccessPage /> },
     ],
   },

@@ -16,7 +16,7 @@ export const ContentsBox = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 27px;
-  margin-bottom: 106px; //공유버튼 위로띄우면서 그만큼 높이 올리기
+  /* margin-bottom: 106px; //공유버튼 위로띄우면서 그만큼 높이 올리기 */
 `;
 //맨위 타이틀
 export const Title = styled.div`
@@ -117,13 +117,14 @@ export const IGText = styled.div`
 //버튼 감싸는 디브
 export const NavBtnBox = styled.div`
   display: flex;
-  position: fixed;
+  /* position: fixed;
   z-index: 10;
-  bottom: 0;
+  bottom: 0; */
   gap: 14px;
   width: 88%;
   max-width: 475px;
-  height: 106px;
+  /* height: 106px; */
+  margin-bottom: 54px;
   background-color: ${({ theme }) => theme.colors.testBgColor};
 `;
 export const Btn = styled.button`

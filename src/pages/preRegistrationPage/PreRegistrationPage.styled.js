@@ -53,6 +53,7 @@ export const SubTitle = styled.div`
 export const LogoBox = styled.section`
   display: flex;
   justify-content: center;
+  margin: 30px 0;
   img {
     width: 55px;
     height: auto;
@@ -99,6 +100,9 @@ export const InfoTextarea = styled.input`
     color: #8a8a8a; /* 클릭 후 글씨 색상 */
     outline: none; /* 기본 아웃라인 제거 */
   }
+
+  -webkit-text-size-adjust: 100%; /* 자동 확대 방지 */
+  
 `;
 export const NextBtn = styled.button`
   display: flex;
