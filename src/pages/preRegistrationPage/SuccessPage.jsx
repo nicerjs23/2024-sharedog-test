@@ -9,7 +9,7 @@ export const SuccessPage = () => {
       <ContentsWrapper>
         <TextBox>
           <Title>신청해주셔서 감사해요 !</Title>
-          <SubTitle>나눠주개 프로그램 오픈 시,</SubTitle>
+          <SubTitle>나눠주개 프로그램 출시 시,</SubTitle>
           <SubTitle>
             남겨주신 전화번호와 이메일로 먼저 연락드릴게요!
           </SubTitle>
