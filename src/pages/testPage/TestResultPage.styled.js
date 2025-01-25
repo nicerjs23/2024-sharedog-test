@@ -41,8 +41,8 @@ export const Line = styled.div`
   width: 77.6%;
   height: 1px;
   background-color: #ffe0e0;
-  margin-top: ${({ marginTop }) => marginTop || "30px"};
-  margin-bottom: ${({ marginBottom }) => marginBottom || "30px"};
+  margin-top: ${({ $marginTop }) => $marginTop || "30px"};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom || "30px"};
 `;
 
 //서브타이틀

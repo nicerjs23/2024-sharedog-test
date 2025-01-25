@@ -13,11 +13,8 @@ export const TestResultNoPage = () => {
   const { handleShare } = useShare({
     url: startUrl,
   });
-  const params = new URLSearchParams(window.location.search);
-  const docId = params.get("id");
-
   const handlePreRegistration = () => {
-    goTo(`/preRegistration?id=${docId}`, { replace: true });
+    goTo(`/preRegistration`, { replace: true });
   };
 
   return (
@@ -31,7 +28,7 @@ export const TestResultNoPage = () => {
           <img src={testNoPng} alt="수의사 로고" />
         </S.TestPng>
 
-        <S.Line marginTop="13px" marginBottom="22px" />
+        <S.Line $marginTop="13px" $marginBottom="22px" />
 
         <S.SubTitle>
           다음과 같은 이유로 헌혈이 불가능할 수 있어요.

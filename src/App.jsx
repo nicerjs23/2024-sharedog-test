@@ -5,6 +5,9 @@ import GlobalStyle from "@styles/global";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import { useEffect } from "react";
+
+import { FirebaseProvider } from "./context/FirebaseContext"; // Context import
+
 function App() {
   useEffect(() => {
     const setVh = () => {
@@ -18,10 +21,12 @@ function App() {
     return () => window.removeEventListener("resize", setVh); // 이벤트 해제
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <FirebaseProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </FirebaseProvider>
   );
 }
 
