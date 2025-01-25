@@ -72,7 +72,7 @@ export const InfoBox = styled.div`
 
 export const InfoTextBox = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 7px;
 `;
 //피모양 아이콘 크기조절할 디브
 export const InfoIcon = styled.div`
