@@ -11,8 +11,12 @@ import TestLoading from "@components/test/TestLoading";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase"; // firebase.js에서 Firestore 가져옴
 
+import { useFirebaseContext } from "@context/FirebaseContext";
+
 export const TestPage = () => {
   const { goTo } = useCustomNavigate();
+
+  const { setDocId } = useFirebaseContext(); // Context에서 setDocId 가져오기
 
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 문항 인덱스
   const [selectedOptions, setSelectedOptions] = useState(
@@ -69,18 +73,17 @@ export const TestPage = () => {
   // ✅ Firestore에 데이터 저장 (테스트 결과만 저장)
   const saveToFirestore = async (selectedStrings, resultText) => {
     try {
-      // Firestore에 새 문서 추가
       const docRef = await addDoc(collection(db, "testResults"), {
-        selectedStrings: selectedStrings,
-        resultText: resultText, // 결과 텍스트 추가
-        timestamp: new Date(), // 저장 시점
+        selectedStrings,
+        resultText,
+        timestamp: new Date(),
       });
-      console.log("✅ Firestore에 저장 성공! 문서 ID:");
-      // console.log("✅ Firestore에 저장 성공! 문서 ID:", docRef.id);
-      return docRef.id; // 문서 ID 반환
+      console.log("✅ Firestore 테스트정보 저장 성공:");
+      setDocId(docRef.id); // 문서 ID 저장
+      return docRef.id;
     } catch (error) {
       console.error("Firestore 저장 실패:", error);
-      return null; // 실패 시 null 반환
+      return null;
     }
   };
 
@@ -125,9 +128,9 @@ export const TestPage = () => {
         if (docId) {
           // ✅ 마지막 문항 완료 후 결과 페이지로 이동
           if (resultScore >= 5) {
-            goTo(`/resultOK?id=${docId}`, { replace: true });
+            goTo(`/resultOK`, { replace: true });
           } else {
-            goTo(`/resultNO?id=${docId}`, { replace: true });
+            goTo(`/resultNO`, { replace: true });
           }
         } else {
           console.error("Firestore 문서 저장 실패");

@@ -13,11 +13,9 @@ export const TestResultOkPage = () => {
   const { handleShare } = useShare({
     url: startUrl,
   });
-  const params = new URLSearchParams(window.location.search);
-  const docId = params.get("id");
 
   const handlePreRegistration = () => {
-    goTo(`/preRegistration?id=${docId}`, { replace: true });
+    goTo(`/preRegistration`, { replace: true });
   };
   return (
     <S.Wrapper>
@@ -28,7 +26,7 @@ export const TestResultOkPage = () => {
         <S.TestPng>
           <img src={testOkPng} alt="오케이손가락이미지" />
         </S.TestPng>
-        <S.Line marginTop="13px" marginBottom="22px" />
+        <S.Line $marginTop="13px" $marginBottom="22px" />
 
         <S.SubTitle>
           나눠주개와 함께 헌혈하고 강아지 4마리를 구해봐요.

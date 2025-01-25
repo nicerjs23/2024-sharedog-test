@@ -7,8 +7,12 @@ import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase"; // firebase.js에서 Firestore 가져옴
 
+import { useFirebaseContext } from "@context/FirebaseContext";
+
 export const PreRegistrationPage = () => {
   const { goTo } = useCustomNavigate();
+  const { docId, setUserInfo: setContextUserInfo } =
+    useFirebaseContext(); // FirebaseContext에서 docId와 setUserInfo 가져오기
 
   // 입력값 상태 관리
   const [userInfo, setUserInfo] = useState({
@@ -21,11 +25,7 @@ export const PreRegistrationPage = () => {
     phone: false,
     email: false,
   });
-
-  const params = new URLSearchParams(window.location.search);
-  const docId = params.get("id");
-
-  // NextBtn 활성화 상태 확인 (입력만으로 활성화)
+  // NextBtn 활성화 상태 확인
   const isNextBtnActive =
     userInfo.name && userInfo.phone && userInfo.email;
 
@@ -69,7 +69,7 @@ export const PreRegistrationPage = () => {
       await updateDoc(docRef, { userInfo });
 
       console.log("✅ Firestore에 사전 정보 저장 성공!");
-      // console.log("✅ Firestore에 사전 정보 저장 성공!", userInfo);
+      setContextUserInfo(userInfo); // Context에 userInfo 저장
       goTo("/success", { replace: true });
     } catch (error) {
       console.error("Firestore 사전 정보 저장 실패:", error);

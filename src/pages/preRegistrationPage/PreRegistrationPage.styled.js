@@ -34,6 +34,7 @@ export const Contents = styled.div`
 export const TitleBox = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 `;
 export const Title = styled.div`
   display: flex;
@@ -53,7 +54,7 @@ export const SubTitle = styled.div`
 export const LogoBox = styled.section`
   display: flex;
   justify-content: center;
-  margin: 30px 0;
+  /* margin: 30px 0; */
   img {
     width: 55px;
     height: auto;
@@ -84,14 +85,14 @@ export const InfoTextarea = styled.input`
   border: 1px solid #e7e8eb;
 
   padding: 0 10px; /* 내부 여백 */
-  font-size: 0.875rem; /* 글씨 크기 */
+  font-size: 1rem; /* 글씨 크기   font-size: 0.875rem;  */
   color: #8a8a8a;
   font-family: ${({ theme }) =>
     theme.fonts.SUITMedium["font-family"]};
   /* placeholder 스타일 설정 */
   &::placeholder {
     color: #dcdcdc; /* 플레이스홀더 기본 색상 */
-    font-size: 0.875rem; /* 플레이스홀더 폰트 크기 */
+    font-size: 1rem; /* 플레이스홀더 폰트 크기 */
   }
 
   /* 포커스(클릭) 상태 */
@@ -100,9 +101,6 @@ export const InfoTextarea = styled.input`
     color: #8a8a8a; /* 클릭 후 글씨 색상 */
     outline: none; /* 기본 아웃라인 제거 */
   }
-
-  -webkit-text-size-adjust: 100%; /* 자동 확대 방지 */
-  
 `;
 export const NextBtn = styled.button`
   display: flex;
