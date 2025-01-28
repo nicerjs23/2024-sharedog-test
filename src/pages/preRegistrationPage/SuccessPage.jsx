@@ -9,6 +9,7 @@ export const SuccessPage = () => {
       <ContentsWrapper>
         <TextBox>
           <Title>신청해주셔서 감사해요 !</Title>
+          <HighlightText>출시 예정일 : 2월 10일</HighlightText>
           <SubTitle>나눠주개 프로그램 출시 시,</SubTitle>
           <SubTitle>
             남겨주신 전화번호와 이메일로 먼저 연락드릴게요!
@@ -55,7 +56,7 @@ const TextBox = styled.section`
 
 const Title = styled.div`
   display: flex;
-  margin-bottom: 24px;
+
   color: #000000;
   font-size: 1.375rem;
   font-family: ${({ theme }) =>
@@ -67,6 +68,18 @@ const SubTitle = styled.div`
   font-size: 1rem;
   font-family: ${({ theme }) =>
     theme.fonts.SUITSemiBold["font-family"]};
+`;
+//하이라이트 문구
+const HighlightText = styled.div`
+  margin-top: 18px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-start;
+  width: 77.6%;
+  color: #ffa2a2;
+  font-size: 0.875rem;
+  line-height: 23px;
+  font-family: ${({ theme }) => theme.fonts.SUITBold["font-family"]};
 `;
 const ImgBox = styled.section`
   display: flex;

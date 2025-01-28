@@ -83,10 +83,11 @@ export const PreRegistrationPage = () => {
         <S.Contents>
           <S.TitleBox>
             <S.Title>나눠주개 프로그램 사전 신청</S.Title>
+            <S.SubTitle>사전신청을 통해,</S.SubTitle>
             <S.SubTitle>
-              나눠주개 프로그램을 통해 쉽게 헌혈하고
+              헌혈 교육, 헌혈 커뮤니티 서비스, 각종 네트워킹
+              프로그램을가장 빠르게 만나보세요 !
             </S.SubTitle>
-            <S.SubTitle>4마리의 강아지를 구해봐요!</S.SubTitle>
           </S.TitleBox>
           <S.LogoBox>
             <img src={testLogo} alt="Logo" />
