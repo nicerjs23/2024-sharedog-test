@@ -96,7 +96,8 @@ export const TestResultNoPage = () => {
             <img src={IgIcon} alt="인스타아이콘" />
           </S.IGIcon>
           <S.IGText>
-            나눠주개 프로그램 사전 신청하고 무료로 혜택 받으러가요 !
+          나눠주개 프로그램 사전 신청하시면 출시 시 가장 먼저
+          연락드려요!
           </S.IGText>
         </S.IGBox>
       </S.ContentsBox>

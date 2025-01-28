@@ -59,13 +59,15 @@ const Title = styled.div`
 
   color: #000000;
   font-size: 1.375rem;
+
   font-family: ${({ theme }) =>
     theme.fonts.SUITExtraBold["font-family"]};
 `;
 const SubTitle = styled.div`
+  line-height: 20px;
   display: flex;
   color: #8a8a8a;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-family: ${({ theme }) =>
     theme.fonts.SUITSemiBold["font-family"]};
 `;

@@ -47,7 +47,8 @@ export const Title = styled.div`
 export const SubTitle = styled.div`
   display: flex;
   color: #8a8a8a;
-  font-size: 1rem;
+  line-height: px;
+  font-size: 0.875rem;
   font-family: ${({ theme }) =>
     theme.fonts.SUITSemiBold["font-family"]};
   word-break: keep-all; /* 단어 단위로 줄바꿈 */
