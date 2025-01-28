@@ -86,7 +86,7 @@ export const PreRegistrationPage = () => {
             <S.SubTitle>사전신청을 통해,</S.SubTitle>
             <S.SubTitle>
               헌혈 교육, 헌혈 커뮤니티 서비스, 각종 네트워킹
-              프로그램을가장 빠르게 만나보세요 !
+              프로그램을 가장 빠르게 만나보세요 !
             </S.SubTitle>
           </S.TitleBox>
           <S.LogoBox>
