@@ -55,20 +55,33 @@ export const TestResultNoPage = () => {
 
         <S.Line />
 
-        <S.SubTitle>아쉽게 헌혈은 못하지만, </S.SubTitle>
         <S.SubTitle>
-          나눠주개 팀과 함께 반려견 헌혈 문화를 알려봐요!
+          아쉽지만, 나눠주개 프로그램을 통해 헌혈 문화 확산에 도움을
+          보탤 수 있어요!
         </S.SubTitle>
-
+        <S.HighlightText>
+          * 나눠주개 프로그램은 동국대학교 소속 대학생 5명이 운영하는
+          소셜임팩트 조직에서 직접 제작한 프로그램이에요.
+        </S.HighlightText>
         <S.InfoBox>
           <InfoText
-            text="나눠주개 팀과 함께 반려견 헌혈 문화와 공혈견에 대해 알려봐요."
-            highlight="반려견 헌혈 문화와 공혈견"
+            text="나눠주개 팀과 함께 반려견 헌혈 문화와 공혈견에 대해 알릴 수 있어요."
+            highlight={["반려견 헌혈 문화", "공혈견"]}
           />
           <InfoText
             text="나눠주개가 제공하는 헌혈 교육을 듣고 반려견 헌혈 
 문화에 대한 지식을 쌓아요."
-            highlight="헌혈 교육"
+            highlight={["헌혈 교육"]}
+          />
+          <InfoText
+            text="내 반려견이 아플 때, 헌혈 관련 도움을 받을 수 있는
+커뮤니티 서비스를 이용할 수 있어요."
+            highlight={["헌혈 관련 도움", "커뮤니티 서비스"]}
+          />
+          <InfoText
+            text="다양한 네트워킹 프로그램을 통해 대형견, 소형견 견주
+분들과 소통하며 서로 도움을 주고 받을 수 있어요."
+            highlight={["네트워킹", "프로그램"]}
           />
         </S.InfoBox>
         <S.IGBox>
@@ -96,8 +109,12 @@ export const TestResultNoPage = () => {
     </S.Wrapper>
   );
 };
+const InfoText = ({ text, highlight = [] }) => {
+  // highlight를 항상 배열로 변환
+  const highlights = Array.isArray(highlight)
+    ? highlight
+    : [highlight];
 
-const InfoText = ({ text, highlight }) => {
   return (
     <S.InfoTextBox>
       <S.InfoIcon>
@@ -106,14 +123,17 @@ const InfoText = ({ text, highlight }) => {
       {/* 특정 글자 하이라이트 */}
       <S.InfoText>
         <span>
-          {text.split(highlight).map((part, index) => (
-            <React.Fragment key={index}>
-              {part}
-              {index < text.split(highlight).length - 1 && (
-                <span style={{ color: "#FF6969" }}>{highlight}</span>
-              )}
-            </React.Fragment>
-          ))}
+          {text
+            .split(new RegExp(`(${highlights.join("|")})`, "gi"))
+            .map((part, index) => (
+              <React.Fragment key={index}>
+                {highlights.includes(part) ? (
+                  <span style={{ color: "#FF6969" }}>{part}</span>
+                ) : (
+                  part
+                )}
+              </React.Fragment>
+            ))}
         </span>
       </S.InfoText>
     </S.InfoTextBox>

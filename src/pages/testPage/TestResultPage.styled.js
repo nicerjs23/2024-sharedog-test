@@ -56,6 +56,18 @@ export const SubTitle = styled.div`
   font-family: ${({ theme }) =>
     theme.fonts.SUITExtraBold["font-family"]};
 `;
+//하이라이트 문구
+export const HighlightText = styled.div`
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+  width: 77.6%;
+  color: #ffa2a2;
+  font-size: 0.625rem;
+  line-height: 1rem;
+  font-family: ${({ theme }) =>
+    theme.fonts.SUITSemiBold["font-family"]};
+`;
 //설명박스
 export const InfoBox = styled.div`
   margin-top: 10px;
@@ -88,12 +100,16 @@ export const InfoText = styled.div`
   font-size: 0.75rem;
   font-family: ${({ theme }) =>
     theme.fonts.SUITSemiBold["font-family"]};
+
+  word-break: keep-all; /* 단어 단위로 줄바꿈 */
+  overflow-wrap: break-word; /* 단어가 길 경우 줄바꿈 */
+  white-space: normal; /* 줄바꿈 허용 */
 `;
 //인스타연결
 export const IGBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 77.6%;
+  width: 88%;
   align-items: center;
   gap: 11px;
   margin-top: 50px;

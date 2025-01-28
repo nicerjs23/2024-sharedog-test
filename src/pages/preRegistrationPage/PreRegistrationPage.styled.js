@@ -50,6 +50,9 @@ export const SubTitle = styled.div`
   font-size: 1rem;
   font-family: ${({ theme }) =>
     theme.fonts.SUITSemiBold["font-family"]};
+  word-break: keep-all; /* 단어 단위로 줄바꿈 */
+  overflow-wrap: break-word; /* 단어가 길 경우 줄바꿈 */
+  white-space: normal; /* 줄바꿈 허용 */
 `;
 export const LogoBox = styled.section`
   display: flex;
